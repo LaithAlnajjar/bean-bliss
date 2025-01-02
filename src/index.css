@@ -1,7 +1,6 @@
 #root {
   margin: 0;
   display: grid;
-  grid-template-rows: 10vh 80vh 10vh;
 }
 
 body {
