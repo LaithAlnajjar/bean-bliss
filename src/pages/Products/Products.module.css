@@ -4,17 +4,3 @@
   grid-template-columns: 1fr 1fr 1fr;
   place-content: center;
 }
-
-.product-card {
-  display: grid;
-  place-content: center;
-}
-
-.product-image {
-  width: 300px;
-  height: 300px;
-}
-
-.product-label {
-  text-align: center;
-}

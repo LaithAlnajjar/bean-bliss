@@ -1,0 +1,19 @@
+.product-card {
+  padding: 30px;
+  display: grid;
+  place-content: center;
+}
+
+.product-label {
+  display: flex;
+  justify-content: space-between;
+}
+
+.product-image {
+  height: auto;
+  width: 500px;
+}
+
+.product-name {
+  text-align: center;
+}
