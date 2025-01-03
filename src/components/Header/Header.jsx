@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-export default function Header() {
+export default function Header({ setCartOpen }) {
   return (
     <header>
       <nav>
@@ -13,6 +13,7 @@ export default function Header() {
           </li>
         </ul>
       </nav>
+      <button onClick={() => setCartOpen(true)}>OPEN CART</button>
     </header>
   );
 }

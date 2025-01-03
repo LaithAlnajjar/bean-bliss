@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
 import ProductCard from "../../components/ProductCard/ProductCard";
 import classes from "./Products.module.css";
+import propTypes from "prop-types";
 
-export default function Header() {
+export default function Products({ cartItems, setCartItems }) {
   const [productData, setProductData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -31,9 +32,16 @@ export default function Header() {
             name={product.name}
             image_url={product.image_url}
             price={product.price}
+            cartItems={cartItems}
+            setCartItems={setCartItems}
           />
         );
       })}
     </div>
   );
 }
+
+Products.propTypes = {
+  cartItems: propTypes.array,
+  setCartItems: propTypes.func,
+};
