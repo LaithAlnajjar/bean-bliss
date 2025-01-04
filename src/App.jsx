@@ -7,6 +7,7 @@ import { Outlet } from "react-router-dom";
 function App() {
   const [cartOpen, setCartOpen] = useState(false);
   const [cartItems, setCartItems] = useState([]);
+  const [addedIds, setAddedIds] = useState([]);
 
   return (
     <>
@@ -15,9 +16,16 @@ function App() {
         setCartOpen={setCartOpen}
         cartItems={cartItems}
         setCartItems={setCartItems}
+        addedIds={addedIds}
+        setAddedIds={setAddedIds}
       />
       <Header cartOpen={cartOpen} setCartOpen={setCartOpen} />
-      <Outlet cartItems={cartItems} setCartItems={setCartItems} />
+      <Outlet
+        context={{
+          cartItems: [cartItems, setCartItems],
+          addedIds: [addedIds, setAddedIds],
+        }}
+      />
       <Footer />
     </>
   );

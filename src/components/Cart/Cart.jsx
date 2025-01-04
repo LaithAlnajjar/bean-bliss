@@ -5,7 +5,7 @@ export default function Cart({
   cartOpen,
   setCartOpen,
   cartItems,
-  setCartItems,
+  // setCartItems,
 }) {
   if (!cartOpen) return <></>;
   return cartItems.length == 0 ? (
@@ -21,7 +21,17 @@ export default function Cart({
     </div>
   ) : (
     <div className={styles["container"]}>
-      <div>CART IS FUULLL</div>
+      <div>
+        {cartItems.map((curItem) => {
+          return (
+            <div key={curItem.item.id}>
+              {" "}
+              {curItem.item.name}
+              {curItem.count}
+            </div>
+          );
+        })}
+      </div>
       <button
         onClick={() => {
           setCartOpen(false);

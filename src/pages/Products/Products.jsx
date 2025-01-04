@@ -1,12 +1,16 @@
 import { useState, useEffect } from "react";
 import ProductCard from "../../components/ProductCard/ProductCard";
 import classes from "./Products.module.css";
-import propTypes from "prop-types";
+import { useOutletContext } from "react-router-dom";
 
-export default function Products({ cartItems, setCartItems }) {
+export default function Products() {
   const [productData, setProductData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const {
+    cartItems: [cartItems, setCartItems],
+    addedIds: [addedIds, setAddedIds],
+  } = useOutletContext();
 
   useEffect(() => {
     fetch("https://fake-coffee-api.vercel.app/api?limit=9") //fetch 9 items from the fake coffee api
@@ -29,19 +33,17 @@ export default function Products({ cartItems, setCartItems }) {
         return (
           <ProductCard
             key={product.id}
+            id={product.id}
             name={product.name}
             image_url={product.image_url}
             price={product.price}
             cartItems={cartItems}
             setCartItems={setCartItems}
+            addedIds={addedIds}
+            setAddedIds={setAddedIds}
           />
         );
       })}
     </div>
   );
 }
-
-Products.propTypes = {
-  cartItems: propTypes.array,
-  setCartItems: propTypes.func,
-};
