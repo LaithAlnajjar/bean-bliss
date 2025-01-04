@@ -6,3 +6,8 @@
   overflow: auto;
   width: 400px;
 }
+
+.product-image {
+  width: 100px;
+  height: auto;
+}
