@@ -13,7 +13,7 @@ export default function Products() {
   } = useOutletContext();
 
   useEffect(() => {
-    fetch("https://fake-coffee-api.vercel.app/api?limit=9") //fetch 9 items from the fake coffee api
+    fetch("https://fake-coffee-api.vercel.app/api?limit=12") //fetch 9 items from the fake coffee api
       .then((res) => res.json())
       .then((data) => {
         setProductData(data); //set the fetched items in the state

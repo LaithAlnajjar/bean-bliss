@@ -63,7 +63,7 @@ export default function ProductCard({
         <div className={styles["product-name"]}>{name}</div>
         <div className={styles["product-price"]}>{price}</div>
       </div>
-      <div>
+      <div className={styles["cart-options"]}>
         <button onClick={handleDecrement}>-</button>
         <input
           type="number"

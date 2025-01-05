@@ -1,8 +1,17 @@
 import { Link } from "react-router-dom";
+import propTypes from "prop-types";
+import styles from "./Header.module.css";
 
 export default function Header({ setCartOpen }) {
   return (
-    <header>
+    <header className={styles["header"]}>
+      <div className={styles["logo-section"]}>
+        <img
+          src="../../../../src/assets/BeanBliss.png"
+          className={styles["logo"]}
+        />
+        <h3>Bean Bliss</h3>
+      </div>
       <nav>
         <ul>
           <li>
@@ -17,3 +26,7 @@ export default function Header({ setCartOpen }) {
     </header>
   );
 }
+
+Header.propTypes = {
+  setCartOpen: propTypes.func,
+};

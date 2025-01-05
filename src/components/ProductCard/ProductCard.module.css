@@ -1,5 +1,5 @@
 .product-card {
-  padding: 30px;
+  padding: 20px;
   display: grid;
   place-content: center;
 }
@@ -10,10 +10,14 @@
 }
 
 .product-image {
-  height: auto;
-  width: 500px;
+  width: 300px;
 }
 
 .product-name {
   text-align: center;
+}
+
+.cart-options {
+  display: flex;
+  justify-content: space-between;
 }

@@ -112,4 +112,6 @@ Cart.propTypes = {
   setCartOpen: propTypes.func,
   cartItems: propTypes.array,
   setCartItems: propTypes.func,
+  addedIds: propTypes.array,
+  setAddedIds: propTypes.func,
 };
