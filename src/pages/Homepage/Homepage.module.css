@@ -27,8 +27,11 @@
 .headline {
   color: #503f2d;
   font-size: 5.5rem;
+  font-weight: 1000;
 }
 
 .subheading {
+  color: #775e44;
   font-size: 2.4rem;
+  font-weight: 400;
 }
