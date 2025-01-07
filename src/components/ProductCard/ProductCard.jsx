@@ -60,8 +60,12 @@ export default function ProductCard({
         alt="product image"
       />
       <div className={styles["product-label"]}>
-        <div className={styles["product-name"]}>{name}</div>
-        <div className={styles["product-price"]}>{price}</div>
+        <div role="productName" className={styles["product-name"]}>
+          {name}
+        </div>
+        <div role="productPrice" className={styles["product-price"]}>
+          {price}
+        </div>
       </div>
       <div className={styles["cart-options"]}>
         <button onClick={handleDecrement}>-</button>
