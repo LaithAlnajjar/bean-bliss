@@ -1,13 +1,21 @@
 .container {
   position: absolute;
-  right: 0;
+  right: -400px;
   height: 100vh;
   background-color: blue;
   overflow: auto;
   width: 400px;
+  animation: slide-in-anim 300ms forwards;
+  overflow: hidden;
 }
 
 .product-image {
   width: 100px;
   height: auto;
+}
+
+@keyframes slide-in-anim {
+  100% {
+    right: 0px;
+  }
 }

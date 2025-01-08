@@ -1,8 +1,14 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import propTypes from "prop-types";
 import styles from "./Header.module.css";
+import { useState } from "react";
+import { ShoppingCart } from "lucide-react";
 
 export default function Header({ setCartOpen }) {
+  const [active, setActive] = useState(
+    useLocation().pathname == "/" ? "home" : "shop"
+  );
+
   return (
     <header className={styles["header"]}>
       <div className={styles["logo-section"]}>
@@ -15,14 +21,36 @@ export default function Header({ setCartOpen }) {
       <nav>
         <ul>
           <li>
-            <Link to="/">Home</Link>
+            <Link
+              className={`${styles["link"]} ${
+                active == "home" && styles["active"]
+              } `}
+              to="/"
+              onClick={() => setActive("home")}
+            >
+              Home
+            </Link>
           </li>
           <li>
-            <Link to="shop">Shop</Link>
+            <Link
+              className={`${styles["link"]} ${
+                active == "shop" && styles["active"]
+              } `}
+              to="shop"
+              onClick={() => setActive("shop")}
+            >
+              Shop
+            </Link>
           </li>
         </ul>
       </nav>
-      <button onClick={() => setCartOpen(true)}>OPEN CART</button>
+      <div className={styles["cart-container"]}>
+        <ShoppingCart
+          className={styles["cart"]}
+          onClick={() => setCartOpen(true)}
+          size={48}
+        />
+      </div>
     </header>
   );
 }
