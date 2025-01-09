@@ -2,6 +2,7 @@
 
 .header {
   padding: 0px 80px;
+  height: 10vh;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -12,12 +13,12 @@
   align-items: center;
   gap: 20px;
   font-family: Playfair Display;
-  font-size: 2rem;
+  font-size: 1.8rem;
   color: #302815;
 }
 
 .logo {
-  width: 100px;
+  width: 70px;
 }
 
 ul {
@@ -32,7 +33,7 @@ ul {
   list-style: none;
   color: #572a17;
   text-decoration: none;
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   display: block;
   position: relative;
   padding: 0.2em 0;

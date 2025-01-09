@@ -48,7 +48,7 @@ export default function Header({ setCartOpen }) {
         <ShoppingCart
           className={styles["cart"]}
           onClick={() => setCartOpen(true)}
-          size={48}
+          size={40}
         />
       </div>
     </header>

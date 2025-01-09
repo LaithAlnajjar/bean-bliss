@@ -1,6 +1,8 @@
 .container {
-  min-height: 85vh;
+  min-height: calc(82vh - 23px);
   padding: 20px 20px;
+  display: grid;
+  place-content: center;
 }
 
 .hero {
@@ -32,6 +34,6 @@
 
 .subheading {
   color: #775e44;
-  font-size: 2.4rem;
+  font-size: 2rem;
   font-weight: 400;
 }

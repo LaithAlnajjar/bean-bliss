@@ -1,3 +1,13 @@
+import styles from "./Footer.module.css";
+import { Github } from "lucide-react";
+
 export default function Footer() {
-  return <footer>This is a footer</footer>;
+  return (
+    <footer>
+      <div className={styles["copyright"]}>
+        Copyright © 2025 Laith Alnajjar
+        <Github size={36} />
+      </div>
+    </footer>
+  );
 }

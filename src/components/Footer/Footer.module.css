@@ -1,0 +1,16 @@
+footer {
+  display: grid;
+  place-content: center;
+  background-color: #e6c570;
+  color: white;
+  min-height: 5vh;
+}
+
+.copyright {
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  font-size: 1srem;
+}
