@@ -1,4 +1,5 @@
 import styles from "./Homepage.module.css";
+import { Link } from "react-router-dom";
 
 export default function Homepage() {
   return (
@@ -12,6 +13,9 @@ export default function Homepage() {
             tailored to delight your palate. From smooth and subtle to bold and
             intense, discover the perfect roast for every moment.
           </span>
+          <Link className={styles["link"]} to={"shop"}>
+            <button className={styles["shop"]}>Shop Now</button>
+          </Link>
         </div>
         <img
           className={styles["image"]}
