@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import styles from "./Cart.module.css";
 import propTypes from "prop-types";
 
@@ -9,6 +10,11 @@ export default function Cart({
   addedIds,
   setAddedIds,
 }) {
+  useEffect(() => {
+    const body = document.querySelector("body");
+    body.classList.toggle("disabled");
+  }, [cartOpen]);
+
   const handleDecrement = (id, amount) => {
     if (amount == 1) {
       setCartItems(
@@ -57,53 +63,59 @@ export default function Cart({
   };
 
   if (!cartOpen) return <></>;
-  return cartItems.length == 0 ? (
-    <div className={styles["container"]}>
-      <div>CART IS EMPTY</div>
-      <button
-        onClick={() => {
-          setCartOpen(false);
-        }}
-      >
-        Close Cart
-      </button>
-    </div>
-  ) : (
-    <div className={styles["container"]}>
-      <div>
-        {cartItems.map((curItem) => {
-          return (
-            <div key={curItem.item.id}>
-              <img
-                className={styles["product-image"]}
-                src={curItem.item.image_url}
-              />{" "}
-              <div>{curItem.item.name}</div>
-              <div>
-                <button
-                  onClick={() =>
-                    handleDecrement(curItem.item.id, curItem.count)
-                  }
-                >
-                  -
-                </button>
-                {curItem.count}
-                <button onClick={() => handleIncrement(curItem.item.id)}>
-                  +
-                </button>
-              </div>
-            </div>
-          );
-        })}
+  return (
+    <>
+      <div className={styles["overlay"]}></div>
+      <div className={styles["container"]}>
+        <div>
+          {cartItems.length === 0 ? (
+            <div> Cart is empty </div>
+          ) : (
+            cartItems.map((curItem) => {
+              return (
+                <div key={curItem.item.id}>
+                  <img
+                    className={styles["product-image"]}
+                    src={curItem.item.image_url}
+                  />{" "}
+                  <div>{curItem.item.name}</div>
+                  <div>
+                    <button
+                      onClick={() =>
+                        handleDecrement(curItem.item.id, curItem.count)
+                      }
+                    >
+                      -
+                    </button>
+                    {curItem.count}
+                    <button onClick={() => handleIncrement(curItem.item.id)}>
+                      +
+                    </button>
+                  </div>
+                </div>
+              );
+            })
+          )}
+        </div>
+        <button
+          onClick={() => {
+            setCartOpen(false);
+          }}
+        >
+          Close Cart
+        </button>
+        <div className={styles["price"]}>
+          Total:{" "}
+          {cartItems
+            .reduce(
+              (accumulator, currentValue) =>
+                accumulator + currentValue.item.price * currentValue.count,
+              0
+            )
+            .toFixed(2)}
+        </div>
       </div>
-      <button
-        onClick={() => {
-          setCartOpen(false);
-        }}
-      >
-        Close Cart
-      </button>
-    </div>
+    </>
   );
 }
 

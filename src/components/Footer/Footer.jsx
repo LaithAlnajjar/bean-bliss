@@ -6,7 +6,7 @@ export default function Footer() {
     <footer>
       <div className={styles["copyright"]}>
         Copyright © 2025 Laith Alnajjar
-        <Github size={36} />
+        <Github size={24} />
       </div>
     </footer>
   );

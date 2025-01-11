@@ -11,3 +11,7 @@ body {
   background-color: #f5f5ef;
   overflow-x: hidden;
 }
+
+.disabled {
+  overflow: hidden;
+}

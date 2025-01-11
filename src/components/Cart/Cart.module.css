@@ -7,6 +7,15 @@
   width: 400px;
   animation: slide-in-anim 300ms forwards;
   overflow: hidden;
+  z-index: 5;
+}
+
+.overlay {
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  z-index: 4;
+  background-color: rgba(0, 0, 0, 0.24);
 }
 
 .product-image {
