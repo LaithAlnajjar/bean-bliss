@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import styles from "./Cart.module.css";
 import propTypes from "prop-types";
+import { SquareX } from "lucide-react";
 
 export default function Cart({
   cartOpen,
@@ -12,7 +13,12 @@ export default function Cart({
 }) {
   useEffect(() => {
     const body = document.querySelector("body");
-    body.classList.toggle("disabled");
+    if (cartOpen) {
+      body.classList.add("disabled");
+    }
+    return () => {
+      body.classList.remove("disabled");
+    };
   }, [cartOpen]);
 
   const handleDecrement = (id, amount) => {
@@ -67,28 +73,43 @@ export default function Cart({
     <>
       <div className={styles["overlay"]}></div>
       <div className={styles["container"]}>
+        <SquareX
+          className={styles["close"]}
+          size={36}
+          onClick={() => {
+            setCartOpen(false);
+          }}
+        />
+        <h2 className={styles["title"]}>Cart</h2>
         <div>
           {cartItems.length === 0 ? (
-            <div> Cart is empty </div>
+            <div className={styles["empty"]}> The cart is empty </div>
           ) : (
+            //if cart contains item, loop over them and display each along withi increment/decrement buttons
             cartItems.map((curItem) => {
               return (
-                <div key={curItem.item.id}>
+                <div className={styles["product"]} key={curItem.item.id}>
                   <img
                     className={styles["product-image"]}
                     src={curItem.item.image_url}
                   />{" "}
-                  <div>{curItem.item.name}</div>
-                  <div>
+                  <div className={styles["product-name"]}>
+                    {curItem.item.name}
+                  </div>
+                  <div className={styles["change"]}>
                     <button
+                      className={styles["button"]}
                       onClick={() =>
                         handleDecrement(curItem.item.id, curItem.count)
                       }
                     >
                       -
                     </button>
-                    {curItem.count}
-                    <button onClick={() => handleIncrement(curItem.item.id)}>
+                    <div className={styles["count"]}>{curItem.count}</div>
+                    <button
+                      className={styles["button"]}
+                      onClick={() => handleIncrement(curItem.item.id)}
+                    >
                       +
                     </button>
                   </div>
@@ -97,15 +118,8 @@ export default function Cart({
             })
           )}
         </div>
-        <button
-          onClick={() => {
-            setCartOpen(false);
-          }}
-        >
-          Close Cart
-        </button>
         <div className={styles["price"]}>
-          Total:{" "}
+          <div className={styles["total"]}>Total: </div>$
           {cartItems
             .reduce(
               (accumulator, currentValue) =>
