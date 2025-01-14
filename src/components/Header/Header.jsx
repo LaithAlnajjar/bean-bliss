@@ -13,7 +13,7 @@ export default function Header({ setCartOpen }) {
     <header className={styles["header"]}>
       <div className={styles["logo-section"]}>
         <img
-          src="../../../../src/assets/BeanBliss.png"
+          src="../../../../assets/BeanBliss.png"
           className={styles["logo"]}
         />
         <h3>Bean Bliss</h3>

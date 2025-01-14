@@ -19,7 +19,7 @@ export default function Homepage() {
         </div>
         <img
           className={styles["image"]}
-          src="../../src/assets/hero.jpg"
+          src="../../assets/hero.jpg"
           alt="high-quality brewery"
         />
       </div>
