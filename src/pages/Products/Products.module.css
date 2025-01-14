@@ -1,8 +1,19 @@
+.title {
+  text-align: center;
+}
+
 .product-grid {
-  padding: 50px 50px;
+  padding: 50px 150px;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(370px, 1fr));
   place-content: center;
+  gap: 20px;
+}
+
+.best {
+  color: #e2ac22;
+  font-style: italic;
+  font-weight: 1000;
 }
 
 .loading {

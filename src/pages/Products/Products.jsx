@@ -39,22 +39,27 @@ export default function Products() {
     );
   if (error) return <p>Error: There was an error loading the data</p>;
   return (
-    <div className={styles["product-grid"]}>
-      {productData.map((product) => {
-        return (
-          <ProductCard
-            key={product.id}
-            id={product.id}
-            name={product.name}
-            image_url={product.image_url}
-            price={product.price}
-            cartItems={cartItems}
-            setCartItems={setCartItems}
-            addedIds={addedIds}
-            setAddedIds={setAddedIds}
-          />
-        );
-      })}
+    <div className="product-page">
+      <h1 className={styles["title"]}>
+        Only the <span className={styles["best"]}>best.</span>
+      </h1>
+      <div className={styles["product-grid"]}>
+        {productData.map((product) => {
+          return (
+            <ProductCard
+              key={product.id}
+              id={product.id}
+              name={product.name}
+              image_url={product.image_url}
+              price={product.price}
+              cartItems={cartItems}
+              setCartItems={setCartItems}
+              addedIds={addedIds}
+              setAddedIds={setAddedIds}
+            />
+          );
+        })}
+      </div>
     </div>
   );
 }

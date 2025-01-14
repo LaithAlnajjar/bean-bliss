@@ -64,11 +64,13 @@ export default function ProductCard({
           {name}
         </div>
         <div role="productPrice" className={styles["product-price"]}>
-          {price}
+          ${price}
         </div>
       </div>
       <div className={styles["cart-options"]}>
-        <button onClick={handleDecrement}>-</button>
+        <button className={styles["change"]} onClick={handleDecrement}>
+          -
+        </button>
         <input
           type="number"
           min="1"
@@ -76,8 +78,12 @@ export default function ProductCard({
           onChange={handleChange}
           onBlur={handleBlur}
         />
-        <button onClick={handleIncrement}>+</button>
-        <button onClick={handleAdd}>Add to Cart</button>
+        <button className={styles["change"]} onClick={handleIncrement}>
+          +
+        </button>
+        <button className={styles["add-to-cart"]} onClick={handleAdd}>
+          Add to Cart
+        </button>
       </div>
     </div>
   );
