@@ -4,3 +4,10 @@
   grid-template-columns: repeat(auto-fit, minmax(370px, 1fr));
   place-content: center;
 }
+
+.loading {
+  min-height: calc(85vh - 9px);
+  padding: 0px 150px;
+  display: grid;
+  place-content: center;
+}

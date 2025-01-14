@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import ProductCard from "../../components/ProductCard/ProductCard";
-import classes from "./Products.module.css";
+import styles from "./Products.module.css";
 import { useOutletContext } from "react-router-dom";
+import { OrbitProgress } from "react-loading-indicators";
 
 export default function Products() {
   const [productData, setProductData] = useState([]);
@@ -25,10 +26,20 @@ export default function Products() {
       });
   }, []);
 
-  if (loading) return <p>Loading...</p>;
+  if (loading)
+    return (
+      <div className={styles["loading"]}>
+        <OrbitProgress
+          color="#e6c570"
+          size="large"
+          text="Loading"
+          textColor="#e6c570"
+        />{" "}
+      </div>
+    );
   if (error) return <p>Error: There was an error loading the data</p>;
   return (
-    <div className={classes["product-grid"]}>
+    <div className={styles["product-grid"]}>
       {productData.map((product) => {
         return (
           <ProductCard
