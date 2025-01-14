@@ -12,10 +12,7 @@ export default function Header({ setCartOpen }) {
   return (
     <header className={styles["header"]}>
       <div className={styles["logo-section"]}>
-        <img
-          src="../../../../assets/BeanBliss.png"
-          className={styles["logo"]}
-        />
+        <img src={"/static/images/BeanBliss.png"} className={styles["logo"]} />
         <h3>Bean Bliss</h3>
       </div>
       <nav>
